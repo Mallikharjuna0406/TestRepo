@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('CleanUp Stage') {
+            steps {
+                echo 'CleanUp Stage'
+                cleanWs notFailBuild: true
+            }
+        }
+        stage('Git Checkout') {
+            steps {
+                echo 'Git Checkout'
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Mallikharjuna0406/TestRepo.git']])
+            }
+        }
+        stage('Restore Package Stage') {
+            steps {
+                echo 'Restore Package'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Build'
+                echo 'mvn clean compile'
+            }
+        }stage('Deploy') {
+            steps {
+                echo 'Deploying the applcation'
+            }
+        }
+        stage('Run the Test') {
+            steps {
+                echo 'Test Execution Started'
+                echo 'mvn test'
+            }
+        }
+    }
+    post {
+  always {
+      junit stdioRetention: '', testResults: 'target/surefire-reports/*.xml'  }
+      cucumber buildStatus: 'UNCHANGED', customCssFiles: '', customJsFiles: '', failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', jsonReportDirectory: 'target/surefire-reports', pendingStepsNumber: -1, reportTitle: 'Karate Test Execution', skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
+}
+}
