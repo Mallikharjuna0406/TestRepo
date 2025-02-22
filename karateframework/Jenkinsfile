@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    
+    parameters { choice(name: 'Environment', choices: ['staging', 'preprod', 'prod'], description: 'Profile needs to be used while executing test') }
+    
     stages {
         stage('CleanUp Stage') {
             steps {
@@ -32,7 +34,7 @@ pipeline {
         stage('Run the Test') {
             steps {
                 echo 'Test Execution Started'
-                echo 'mvn test'
+                echo 'mvn -P %Environment% test'
             }
         }
     }
