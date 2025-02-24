@@ -10,11 +10,11 @@ Feature: To use the JSON path expression
     # karate.jsonPath(doc, jsonPathExpression)
     * def jobId = 1
     * def jobTitle = karate.jsonPath(response, "$[?(@.jobId == "+jobId+")].jobTitle")
-    #* def jobTitle = karate.jsonPath(response, "$[?(@.jobId == 1)].jobTitle")
+    # * def jobTitle = karate.jsonPath(response, "$[?(@.jobId == 1)].jobTitle")
     * def jobDescription = karate.jsonPath(response, "$[?(@.jobId == "+jobId+")].jobDescription")
-    #* def jobDescription = karate.jsonPath(response, "$[?(@.jobId == 1)].jobDescription")
+    # * def jobDescription = karate.jsonPath(response, "$[?(@.jobId == 1)].jobDescription")
     * def experience = karate.jsonPath(response, "$[?(@.jobId == "+jobId+")].experience")
-    #* def experience = karate.jsonPath(response, "$[?(@.jobId == 1)].experience")
+    # * def experience = karate.jsonPath(response, "$[?(@.jobId == 1)].experience")
     And print "jobTitle ==> ", jobTitle
     And print "jobDescription ==> ", jobDescription
     And print "experience ==> ", experience

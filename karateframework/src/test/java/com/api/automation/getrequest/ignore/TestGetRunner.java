@@ -9,6 +9,5 @@ public class TestGetRunner {
 	{
 		return Karate.run("getRequest", "responseMatcher").tags("~@ignore")
 				.relativeTo(getClass());		
-	}
-	
+	}	
 }
