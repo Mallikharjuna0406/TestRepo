@@ -17,12 +17,6 @@
 	</properties>
 
 	<dependencies>
-	<dependency>
-        <groupId>com.intuit.karate</groupId>
-        <artifactId>karate-core</artifactId>
-        <version>1.2.0</version> <!-- Use the appropriate version -->
-        <scope>test</scope>
-    </dependency>
 		<dependency>
 			<groupId>com.intuit.karate</groupId>
 			<artifactId>karate-junit5</artifactId>
@@ -87,8 +81,6 @@
 					</systemProperties>
 				</configuration>
 			</plugin>
-
-	
  		</plugins>
 	</build>
 	

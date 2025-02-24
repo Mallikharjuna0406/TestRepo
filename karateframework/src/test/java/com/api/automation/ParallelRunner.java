@@ -12,6 +12,7 @@ public class ParallelRunner {
 		//	Runner.parallel(getClass(),5);
 		Builder aRunner = new Builder();
 		aRunner.path("classpath:com/api/automation");
+		aRunner.tags("@Smoke", "@Regression");
 		aRunner.parallel(5);
 //		Runner.parallel(aRunner);	
 	}
